@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Loading from "./loading";
 import "./index.css";
 
 function Square(props) {
@@ -47,6 +48,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       history: [
         {
           squares: Array(9).fill(null),
@@ -55,6 +57,14 @@ class Game extends React.Component {
       stepNumber: 0,
       xIsNext: true,
     };
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
+    }, 5000);
   }
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -65,9 +75,11 @@ class Game extends React.Component {
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
-       history: history.concat([{
-        squares: squares
-      }]),
+      history: history.concat([
+        {
+          squares: squares,
+        },
+      ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
@@ -76,22 +88,27 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0,
+      xIsNext: step % 2 === 0,
     });
   }
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Revenir au tour n°' + move :
-        'Revenir au début de la partie';
+      const desc = move
+        ? "Revenir au tour n°" + move
+        : "Revenir au début de la partie";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="btn-grad" onClick={() => this.jumpTo(move)}>
+            {desc}
+          </button>
         </li>
       );
     });

@@ -1,10 +1,11 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  font: 1.2em "Century Gothic", Futura, sans-serif;
+  
 }
 
 ol, ul {
   padding-left: 30px;
+  list-style-type: none;
 }
 
 .board-row:after {
@@ -19,17 +20,15 @@ ol, ul {
 
 .square {
   background: #fff;
-  border: 1px solid #999;
+  border: 2px solid black;
+  border-radius: 8px;
   float: left;
-  font-size: 24px;
+  font-size: 10vw;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
+  height: 10vw;
   text-align: center;
-  width: 34px;
+  width: 10vw;
 }
 
 .square:focus {
@@ -45,6 +44,35 @@ ol, ul {
   flex-direction: row;
 }
 
-.game-info {
-  margin-left: 20px;
+.game-board {
+  margin: auto;
+  padding: auto;
 }
+
+
+.btn-grad {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+ .loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ }
