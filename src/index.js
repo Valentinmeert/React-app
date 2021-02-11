@@ -128,7 +128,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div className="status">{status}</div>
           <ol>{moves}</ol>
         </div>
       </div>
@@ -151,6 +151,7 @@ function calculateWinner(squares) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
+      console.log(squares[a]);
     }
   }
   return null;

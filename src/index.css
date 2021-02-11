@@ -3,8 +3,11 @@ body {
   
 }
 
+
+
 ol, ul {
-  padding-left: 30px;
+  padding: 0px;
+  margin: 0;
   list-style-type: none;
 }
 
@@ -42,37 +45,40 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .game-board {
-  margin: auto;
-  padding: auto;
+  margin: 1vw;
+  padding: 1vw;
 }
 
 
 .btn-grad {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
 .btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
- }
-
- .btn-grad:hover {
+  margin: 10px ;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+.status {
+  margin: 10px;
+}
+.btn-grad:hover {
    background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
+  color: #fff;
+  text-decoration: none;
+}
 
- .loading{
+.loading{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
- }
+}
