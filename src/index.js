@@ -116,11 +116,31 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = winner + " a gagné";
+      console.log(winner);
+      if (localStorage.getItem(winner) == null){
+        localStorage.setItem('X', 0);
+        localStorage.setItem('O', 0);
+      }
+      var new_value = parseInt(localStorage.getItem(winner)) + 1
+      localStorage.setItem(winner,new_value);
     } else {
       status = "Prochain joueur : " + (this.state.xIsNext ? "X" : "O");
     }
     return (
       <div className="game">
+        <div className="score">
+        <table>
+          <tr>
+            <td> X </td>
+            <td> O </td>
+          </tr>
+          <tr>
+            <td> {localStorage.getItem('X')} </td>
+            <td> {localStorage.getItem('O')} </td>
+          </tr>
+        </table>
+        <button className="btn-grad" onClick={()=> localStorage.clear()}> Remettre les compteurs à zéro</button>
+        </div>
         <div className="game-board">
           <Board
             squares={current.squares}

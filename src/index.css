@@ -3,8 +3,6 @@ body {
   
 }
 
-
-
 ol, ul {
   padding: 0px;
   margin: 0;
@@ -81,4 +79,13 @@ ol, ul {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+td, th 
+{
+    border: 1px solid black;
 }
