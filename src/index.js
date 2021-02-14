@@ -59,13 +59,6 @@ class Game extends React.Component {
     };
   }
 
-  componentWillMount() {
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      });
-    }, 5000);
-  }
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
@@ -93,8 +86,12 @@ class Game extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <Loading />;
+    if (
+      localStorage.getItem("X") == null &&
+      localStorage.getItem("O") == null
+    ) {
+      localStorage.setItem("X", 0);
+      localStorage.setItem("O", 0);
     }
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -117,29 +114,33 @@ class Game extends React.Component {
     if (winner) {
       status = winner + " a gagné";
       console.log(winner);
-      if (localStorage.getItem(winner) == null){
-        localStorage.setItem('X', 0);
-        localStorage.setItem('O', 0);
-      }
-      var new_value = parseInt(localStorage.getItem(winner)) + 1
-      localStorage.setItem(winner,new_value);
+      var new_value = parseInt(localStorage.getItem(winner)) + 1;
+      localStorage.setItem(winner, new_value);
     } else {
       status = "Prochain joueur : " + (this.state.xIsNext ? "X" : "O");
     }
+    function refreshPage() {
+    localStorage.clear();
+    window.location.reload();
+  }
     return (
       <div className="game">
         <div className="score">
-        <table>
-          <tr>
-            <td> X </td>
-            <td> O </td>
-          </tr>
-          <tr>
-            <td> {localStorage.getItem('X')} </td>
-            <td> {localStorage.getItem('O')} </td>
-          </tr>
-        </table>
-        <button className="btn-grad" onClick={()=> localStorage.clear()}> Remettre les compteurs à zéro</button>
+          <table>
+            <caption>Score</caption>
+            <tr>
+              <td> X </td>
+              <td> O </td>
+            </tr>
+            <tr>
+              <td> {localStorage.getItem("X")} </td>
+              <td> {localStorage.getItem("O")} </td>
+            </tr>
+          </table>
+          <button className="btn-grad" onClick={refreshPage}>
+            {" "}
+            Remettre les compteurs à zéro
+          </button>
         </div>
         <div className="game-board">
           <Board

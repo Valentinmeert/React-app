@@ -49,9 +49,13 @@ ol, ul {
 .game-board {
   margin: 1vw;
   padding: 1vw;
+  display: flex;
 }
 
-
+.score{
+  margin: 1vw;
+  padding: 1vw;
+}
 .btn-grad {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
 .btn-grad {
   margin: 10px ;
@@ -63,7 +67,7 @@ ol, ul {
   color: white;            
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  display: block;
+  display: flex;
 }
 .status {
   margin: 10px;
@@ -83,9 +87,11 @@ ol, ul {
 
 table
 {
-    border-collapse: collapse;
+  text-align: center;
+  border-collapse: collapse;
 }
 td, th 
 {
+
     border: 1px solid black;
 }
