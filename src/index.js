@@ -119,10 +119,11 @@ class Game extends React.Component {
     } else {
       status = "Prochain joueur : " + (this.state.xIsNext ? "X" : "O");
     }
+
     function refreshPage() {
-    localStorage.clear();
-    window.location.reload();
-  }
+      localStorage.clear();
+      window.location.reload();
+    }
     return (
       <div className="game">
         <div className="score">

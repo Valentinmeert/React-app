@@ -1,6 +1,6 @@
 body {
   font: 1.2em "Century Gothic", Futura, sans-serif;
-  
+  background-color: #f9eac3;
 }
 
 ol, ul {
@@ -20,7 +20,7 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
+  background: #f9eac3;
   border: 2px solid black;
   border-radius: 8px;
   float: left;
@@ -73,7 +73,7 @@ ol, ul {
   margin: 10px;
 }
 .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
+  background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
 }
@@ -85,13 +85,19 @@ ol, ul {
   height: 100vh;
 }
 
+caption{
+  color: black;
+}
 table
 {
-  text-align: center;
-  border-collapse: collapse;
+    background: #34495E;
+    color: #fff;
+    border-radius: .4em;
+    overflow: hidden;
+    text-align: center;
 }
 td, th 
 {
 
-    border: 1px solid black;
+/*     border: 1px solid black; */
 }
